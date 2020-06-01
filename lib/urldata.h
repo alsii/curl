@@ -1438,6 +1438,7 @@ struct UrlState {
  */
 
 struct DynamicStatic {
+  Curl_HttpReq httpreq; /* what kind of HTTP request (if any) is this */
   char *url;        /* work URL, copied from UserDefined */
   char *referer;    /* referer string */
   struct curl_slist *cookielist; /* list of cookie files set by
@@ -1678,7 +1679,7 @@ struct UserDefined {
                                     the hostname and port to connect to */
   curl_TimeCond timecondition; /* kind of time/date comparison */
   time_t timevalue;       /* what time to compare with */
-  Curl_HttpReq httpreq;   /* what kind of HTTP request (if any) is this */
+  Curl_HttpReq method;   /* what kind of HTTP request (if any) is this */
   long httpversion; /* when non-zero, a specific HTTP version requested to
                        be used in the library's request(s) */
   struct ssl_config_data ssl;  /* user defined SSL stuff */
