@@ -3992,6 +3992,10 @@ CURLcode Curl_init_do(struct Curl_easy *data, struct connectdata *conn)
   data->state.done = FALSE; /* *_done() is not called yet */
   data->state.expect100header = FALSE;
 
+  if(data->set.opt_no_body)
+    /* in HTTP lingo, no body means using the HEAD request... */
+    data->change.httpreq = HTTPREQ_HEAD;
+
   k->start = Curl_now(); /* start time */
   k->now = k->start;   /* current time is now */
   k->header = TRUE; /* assume header */
