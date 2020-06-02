@@ -3994,7 +3994,7 @@ CURLcode Curl_init_do(struct Curl_easy *data, struct connectdata *conn)
 
   if(data->set.opt_no_body)
     /* in HTTP lingo, no body means using the HEAD request... */
-    data->change.httpreq = HTTPREQ_HEAD;
+    data->state.httpreq = HTTPREQ_HEAD;
 
   k->start = Curl_now(); /* start time */
   k->now = k->start;   /* current time is now */

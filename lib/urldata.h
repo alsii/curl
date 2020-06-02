@@ -1390,6 +1390,7 @@ struct UrlState {
   int stream_weight;
   CURLU *uh; /* URL handle for the current parsed URL */
   struct urlpieces up;
+  Curl_HttpReq httpreq; /* what kind of HTTP request (if any) is this */
 #ifndef CURL_DISABLE_HTTP
   size_t trailers_bytes_sent;
   struct dynbuf trailers_buf; /* a buffer containing the compiled trailing
@@ -1438,7 +1439,6 @@ struct UrlState {
  */
 
 struct DynamicStatic {
-  Curl_HttpReq httpreq; /* what kind of HTTP request (if any) is this */
   char *url;        /* work URL, copied from UserDefined */
   char *referer;    /* referer string */
   struct curl_slist *cookielist; /* list of cookie files set by
