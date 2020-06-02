@@ -1558,7 +1558,7 @@ static CURLcode http_request(struct connectdata *conn, const void *mem,
     }
   }
 
-  switch(data->set.httpreq) {
+  switch(data->change.httpreq) {
   case HTTPREQ_POST:
   case HTTPREQ_POST_FORM:
   case HTTPREQ_POST_MIME:
